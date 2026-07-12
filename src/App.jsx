@@ -102,46 +102,43 @@ function App() {
               <div className={`relative mb-16 p-8 sm:p-10 lg:p-12 ${GLASS}`}>
                 <p className="relative z-10 mb-4 inline-flex items-center gap-2 rounded-full border border-[#2DD4BF]/20 bg-[#2DD4BF]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#2DD4BF]">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2DD4BF]" />
-                  Available for work
+                  Content
                 </p>
                 <h2 className="font-heading relative z-10 mb-6 text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">
-                  Crafting digital
+                  Content
                   <span className="block bg-gradient-to-r from-white via-[#2DD4BF] to-white/70 bg-clip-text text-transparent">
-                    experiences
+                    Content
                   </span>
-                  that inspire
+                  Content
                 </h2>
                 <p className="relative z-10 mb-8 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
-                  I&apos;m a frontend developer who blends immersive 3D design
-                  with pixel-perfect interfaces — building portfolios and
-                  products that feel as premium as they look.
+                  Content
                 </p>
                 <div className="relative z-10 flex flex-wrap gap-4">
                   <a
                     href="#projects"
                     className="relative z-30 rounded-2xl bg-[#2DD4BF] px-7 py-3.5 text-sm font-semibold text-[#1A0B2E] transition-all pointer-events-auto hover:bg-[#2DD4BF]/90 hover:shadow-[0_0_30px_rgba(45,212,191,0.35)]"
                   >
-                    Explore Projects
+                    Explore Publications
                   </a>
                   <a
                     href="#contact"
                     className={`relative z-30 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all pointer-events-auto hover:text-[#2DD4BF] ${GLASS_BENTO}`}
                   >
-                    Let&apos;s Talk
+                    Let&apos;s Connect
                   </a>
                 </div>
               </div>
 
               <div className="mb-16 max-w-2xl">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#2DD4BF]">
-                  Portfolio
+                  Content
                 </p>
                 <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                  Selected Works
+                  Content
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-white/50 sm:text-lg">
-                  A curated grid of interfaces and experiences — each crafted
-                  with glass, motion, and meticulous attention to detail.
+                  Content
                 </p>
               </div>
 
@@ -178,7 +175,7 @@ function App() {
                         href="#projects"
                         className="relative z-30 mt-8 flex items-center gap-2 text-sm font-medium text-[#2DD4BF]/70 transition-colors pointer-events-auto group-hover:text-[#2DD4BF]"
                       >
-                        View case study
+                        Content
                         <span className="transition-transform group-hover:translate-x-1">
                           &rarr;
                         </span>
