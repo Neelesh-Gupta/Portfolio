@@ -123,8 +123,7 @@ function App() {
                   </a>
                   <a
                     href="#contact"
-                    className={`relative z-30 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all pointer-events-auto hover:text-[#2DD4BF] ${GLASS_BENTO}`}
-                  >
+                        className={`bento-card group relative flex flex-col justify-between p-8 sm:p-10 bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl ${work.span}`}                  >
                     Let&apos;s Connect
                   </a>
                 </div>
