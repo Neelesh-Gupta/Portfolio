@@ -1,62 +1,201 @@
-import { GLASS } from '../constants/glass'
+import { useEffect, useRef } from 'react'
+import Spline from '@splinetool/react-spline'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import AuroraBackground from './components/AuroraBackground'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Hero from './sections/Hero'
+import About from './sections/About'
+import Projects from './sections/Projects'
+import Contact from './sections/Contact'
+import { GLASS, GLASS_BENTO } from './constants/glass'
 
-const contactLinks = [
-  { label: 'Email', value: 'your.email@example.com', href: 'mailto:your.email@example.com' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/you', href: 'https://linkedin.com' },
-  { label: 'GitHub', value: 'github.com/you', href: 'https://github.com' },
+gsap.registerPlugin(ScrollTrigger)
+
+const selectedWorks = [
+  {
+    title: 'Project 1',
+    category: 'Topic',
+    description:
+      'Description',
+    span: 'md:col-span-2 md:row-span-2',
+    accent: true,
+  },
+  {
+    title: 'Project 2',
+    category: 'Topic',
+    description:
+      'Description',
+    span: '',
+  },
+  {
+title: 'Project 3',
+    category: 'Topic',
+    description:
+      'Description',
+    span: '',
+  },
+  {
+    title: 'Project 4',
+    category: 'Topic',
+    description:
+      'Description',
+    span: 'md:col-span-2',
+  },
+  {
+    title: 'Project 5',
+    category: 'Topic',
+    description:
+      'Description',
+    span: '',
+  },
 ]
 
-function Contact() {
+function App() {
+  const bentoRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.bento-card', {
+        y: 56,
+        opacity: 0,
+        duration: 0.85,
+        ease: 'power3.out',
+        stagger: 0.14,
+        scrollTrigger: {
+          trigger: bentoRef.current,
+          start: 'top 82%',
+          toggleActions: 'play none none reverse',
+        },
+      })
+    }, bentoRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="contact" className="px-4 py-24 sm:px-6">
-      <div className={`relative mx-auto max-w-6xl p-8 sm:p-12 ${GLASS}`}>
-        <div className="relative z-10 grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <p className="pointer-events-auto mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#2DD4BF]">
-              Contact
-            </p>
-            <h2 className="font-heading pointer-events-auto mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Content
-            </h2>
-            <p className="pointer-events-auto text-base leading-relaxed text-white/50 sm:text-lg">
-              Content
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            {contactLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.label !== 'Email' ? '_blank' : undefined}
-                rel={link.label !== 'Email' ? 'noreferrer' : undefined}
-                className={`pointer-events-auto group flex items-center justify-between p-5 transition-all hover:border-white/[0.14] hover:bg-white/[0.05] ${GLASS}`}
-              >
-                <div>
-                  <p className="mb-1 text-xs uppercase tracking-wider text-white/40">
-                    {link.label}
-                  </p>
-                  <p className="font-heading text-sm font-semibold text-white transition-colors group-hover:text-[#2DD4BF]">
-                    {link.value}
-                  </p>
-                </div>
-                <span className="text-white/30 transition-transform group-hover:translate-x-1 group-hover:text-[#2DD4BF]">
-                  &rarr;
-                </span>
-              </a>
-            ))}
-
-            <a
-              href="mailto:your.email@example.com"
-              className="pointer-events-auto mt-2 rounded-2xl bg-[#2DD4BF] px-7 py-4 text-center text-sm font-semibold text-[#1A0B2E] transition-all hover:bg-[#2DD4BF]/90 hover:shadow-[0_0_30px_rgba(45,212,191,0.35)]"
-            >
-              Send a Message
-            </a>
-          </div>
-        </div>
+    <div className="relative min-h-screen overflow-x-hidden">
+      {/* Aurora gradient — bottom layer */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <AuroraBackground />
       </div>
-    </section>
+
+      {/* Spline — above aurora, below content */}
+      <div className="spline-layer fixed inset-0 z-10 h-screen w-screen pointer-events-auto">         
+        <Spline scene="https://prod.spline.design/cjbK0moB5ygdybjZ/scene.splinecode" />
+      </div>
+
+      {/* Content — scrollable, mouse-transparent */}
+      <div className="pointer-events-none relative z-20 w-full">
+        <Navbar />
+
+        <main>
+          <Hero />
+
+          <section
+            id="works"
+            ref={bentoRef}
+            className="px-4 py-28 sm:px-6"
+          >
+            <div className="mx-auto max-w-6xl">
+              <div className={`relative mb-16 p-8 sm:p-10 lg:p-12 ${GLASS}`}>
+                <p className="relative z-10 mb-4 inline-flex items-center gap-2 rounded-full border border-[#2DD4BF]/20 bg-[#2DD4BF]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#2DD4BF]">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#2DD4BF]" />
+                  Content
+                </p>
+                <h2 className="font-heading relative z-10 mb-6 text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">
+                  Content
+                  <span className="block bg-gradient-to-r from-white via-[#2DD4BF] to-white/70 bg-clip-text text-transparent">
+                    Content
+                  </span>
+                  Content
+                </h2>
+                <p className="relative z-10 mb-8 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
+                  Content
+                </p>
+                <div className="relative z-10 flex flex-wrap gap-4">
+                  <a
+                    href="#projects"
+                    className="relative z-30 rounded-2xl bg-[#2DD4BF] px-7 py-3.5 text-sm font-semibold text-[#1A0B2E] transition-all pointer-events-auto hover:bg-[#2DD4BF]/90 hover:shadow-[0_0_30px_rgba(45,212,191,0.35)]"
+                  >
+                    Explore Publications
+                  </a>
+                  <a
+                    href="#contact"
+                    className={`relative z-30 px-7 py-3.5 text-sm font-semibold text-white/80 transition-all pointer-events-auto hover:text-[#2DD4BF] ${GLASS_BENTO}`}
+                  >
+                    Let&apos;s Connect
+                  </a>
+                </div>
+              </div>
+
+              <div className="mb-16 max-w-2xl">
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#2DD4BF]">
+                  Content
+                </p>
+                <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                  Content
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-white/50 sm:text-lg">
+                  Content
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:auto-rows-[minmax(180px,auto)] md:gap-8">
+                {selectedWorks.map((work) => (
+                  <article
+                    key={work.title}
+                    className={`bento-card group relative flex flex-col justify-between p-8 sm:p-10 ${GLASS_BENTO} ${work.span}`}
+                  >
+                    <div className="relative z-10">
+                      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#2DD4BF]/80">
+                        {work.category}
+                      </p>
+                      <h3
+                        className={`font-heading font-bold text-white transition-colors group-hover:text-[#2DD4BF] ${
+                          work.accent
+                            ? 'mb-4 text-2xl sm:text-3xl'
+                            : 'mb-3 text-xl'
+                        }`}
+                      >
+                        {work.title}
+                      </h3>
+                      <p
+                        className={`leading-relaxed text-white/50 ${
+                          work.accent ? 'max-w-lg text-base' : 'text-sm'
+                        }`}
+                      >
+                        {work.description}
+                      </p>
+                    </div>
+
+                    {work.accent && (
+                      <a
+                        href="#projects"
+                        className="relative z-30 mt-8 flex items-center gap-2 text-sm font-medium text-[#2DD4BF]/70 transition-colors pointer-events-auto group-hover:text-[#2DD4BF]"
+                      >
+                        Content
+                        <span className="transition-transform group-hover:translate-x-1">
+                          &rarr;
+                        </span>
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <About />
+          <Projects />
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
+    </div>
   )
 }
 
-export default Contact
+export default App
