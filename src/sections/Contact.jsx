@@ -16,11 +16,10 @@ function Contact() {
               Contact
             </p>
             <h2 className="font-heading pointer-events-auto mb-4 text-3xl font-bold text-white sm:text-4xl">
-              Let&apos;s build something remarkable
+              Content
             </h2>
             <p className="pointer-events-auto text-base leading-relaxed text-white/50 sm:text-lg">
-              Whether you have a project in mind or just want to connect, my
-              inbox is always open. I typically respond within 24 hours.
+              Content
             </p>
           </div>
 

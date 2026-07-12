@@ -7,24 +7,24 @@ gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
   {
-    title: 'Immersive Portfolio',
+    title: 'Project 1',
     description:
-      'A glassmorphic personal site with aurora gradients and embedded 3D scenes — built to make a lasting first impression.',
-    tags: ['React', 'Spline', 'Tailwind'],
+      'Description',
+    tags: ['Tag', 'Tag', 'Tag'],
     featured: true,
   },
   {
-    title: 'E-Commerce Dashboard',
+    title: 'Project 2',
     description:
-      'A data-rich admin panel with real-time analytics, dark-mode glass UI, and buttery-smooth micro-interactions.',
-    tags: ['JavaScript', 'API', 'Charts'],
+      'Description',
+    tags: ['Tag', 'Tag', 'Tag'],
     featured: false,
   },
   {
-    title: 'Brand Landing Page',
+    title: 'Project 3',
     description:
-      'A conversion-focused landing page with scroll-driven animations and a mobile-first responsive layout.',
-    tags: ['Vite', 'Motion', 'SEO'],
+      'Description',
+    tags: ['Tag', 'Tag', 'Tag'],
     featured: false,
   },
 ]
@@ -69,11 +69,10 @@ function Projects() {
             Work
           </p>
           <h2 className="font-heading pointer-events-auto relative z-10 text-3xl font-bold text-white sm:text-4xl">
-            Selected Projects
+            Content
           </h2>
           <p className="pointer-events-auto relative z-10 mt-4 max-w-2xl text-base text-white/50">
-            A curated collection of interfaces and experiences — each one
-            crafted with attention to detail, performance, and visual impact.
+              Content
           </p>
         </div>
 
@@ -93,7 +92,7 @@ function Projects() {
                 </div>
                 {project.featured && (
                   <span className="rounded-full border border-[#2DD4BF]/30 bg-[#2DD4BF]/10 px-3 py-1 text-xs font-medium text-[#2DD4BF]">
-                    Featured
+                    Content
                   </span>
                 )}
               </div>
