@@ -87,7 +87,7 @@ h6 {
   background-image: url("../public/noise.svg");
   background-repeat: repeat;
   background-size: 128px 128px;
-  opacity: 0.2;
+  opacity: 0.8;
   mix-blend-mode: overlay;
   pointer-events: none;
 }
