@@ -11,7 +11,7 @@ function Footer() {
         <p className="pointer-events-auto relative z-10">
           &copy; {year}{' '}
           <span className="font-heading font-semibold text-white/60">
-            Neelesh Gupta{" "}
+            Neelesh Gupta {" "}
           </span>
             Crafted with React, Tailwind &amp; Spline.
         </p>
