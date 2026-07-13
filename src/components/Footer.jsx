@@ -13,7 +13,7 @@ function Footer() {
           <span className="font-heading font-semibold text-white/60">
             Neelesh Gupta 
           </span>
-             Crafted with React, Tailwind &amp; Spline.
+            " "Crafted with React, Tailwind &amp; Spline.
         </p>
       </div>
     </footer>
