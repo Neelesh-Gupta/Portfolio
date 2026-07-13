@@ -45,28 +45,22 @@ h6 {
 }
 
 .aurora-layer-1 {
-  background: radial-gradient(
-    ellipse 50% 60% at 30% 40%,
-    rgba(45, 212, 191, 0.45) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(ellipse 50% 60% at 30% 40%,
+      rgba(45, 212, 191, 0.45) 0%,
+      transparent 65%);
 }
 
 .aurora-layer-2 {
-  background: radial-gradient(
-    ellipse 55% 50% at 70% 30%,
-    rgba(17, 34, 64, 0.9) 0%,
-    transparent 60%
-  );
+  background: radial-gradient(ellipse 55% 50% at 70% 30%,
+      rgba(17, 34, 64, 0.9) 0%,
+      transparent 60%);
 }
 
 .aurora-layer-3 {
-  background: radial-gradient(
-    ellipse 60% 55% at 50% 70%,
-    rgba(45, 212, 191, 0.25) 0%,
-    rgba(26, 11, 46, 0.6) 40%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse 60% 55% at 50% 70%,
+      rgba(45, 212, 191, 0.25) 0%,
+      rgba(26, 11, 46, 0.6) 40%,
+      transparent 70%);
 }
 
 .glass {
@@ -83,10 +77,11 @@ h6 {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background-image: url("./assets/noise.svg");
+  /* Inline base64 SVG noise — avoids broken asset paths on GH Pages (/Portfolio/ base) */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2Ij48ZmlsdGVyIGlkPSJub2lzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIgLz48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNTUiIC8+PC9zdmc+");
   background-repeat: repeat;
   background-size: 128px 128px;
-  opacity: 0.2;
+  opacity: 0.8;
   mix-blend-mode: overlay;
   pointer-events: none;
 }
@@ -96,7 +91,7 @@ h6 {
   touch-action: none;
 }
 
-.spline-layer > div,
+.spline-layer>div,
 .spline-layer canvas {
   width: 100% !important;
   height: 100% !important;
