@@ -72,9 +72,9 @@ h6 {
 .glass {
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  background-color: rgb(255 255 255 / 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgb(255 255 255 / 0.05);
   border: 1px solid rgb(255 255 255 / 0.1);
 }
 
@@ -86,7 +86,7 @@ h6 {
   background-image: url("./assets/noise.svg");
   background-repeat: repeat;
   background-size: 128px 128px;
-  opacity: 0;
+  opacity: 0.2;
   mix-blend-mode: overlay;
   pointer-events: none;
 }
