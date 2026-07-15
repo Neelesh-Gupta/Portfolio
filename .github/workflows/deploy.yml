@@ -20,7 +20,9 @@ jobs:
         with:
           node-version: 20
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
+      - name: Fix binary permissions
+        run: chmod +x node_modules/.bin/vite
       - name: Build Project
         run: npm run build
       - name: Upload Artifact
