@@ -45,128 +45,50 @@ h6 {
 }
 
 .aurora-layer-1 {
-  background: radial-gradient(ellipse 50% 60% at 30% 40%,
-      rgba(45, 212, 191, 0.45) 0%,
-      transparent 65%);
+  background: radial-gradient(
+    ellipse 50% 60% at 30% 40%,
+    rgba(45, 212, 191, 0.45) 0%,
+    transparent 65%
+  );
 }
 
 .aurora-layer-2 {
-  background: radial-gradient(ellipse 55% 50% at 70% 30%,
-      rgba(17, 34, 64, 0.9) 0%,
-      transparent 60%);
+  background: radial-gradient(
+    ellipse 55% 50% at 70% 30%,
+    rgba(17, 34, 64, 0.9) 0%,
+    transparent 60%
+  );
 }
 
 .aurora-layer-3 {
-  background: radial-gradient(ellipse 60% 55% at 50% 70%,
-      rgba(45, 212, 191, 0.25) 0%,
-      rgba(26, 11, 46, 0.6) 40%,
-      transparent 70%);
+  background: radial-gradient(
+    ellipse 60% 55% at 50% 70%,
+    rgba(45, 212, 191, 0.25) 0%,
+    rgba(26, 11, 46, 0.6) 40%,
+    transparent 70%
+  );
 }
 
-/* ─── Base frosted-glass card ──────────────────────────────────────────────── */
 .glass {
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(28px) saturate(160%);
-  -webkit-backdrop-filter: blur(28px) saturate(160%);
-  background: linear-gradient(135deg,
-      rgb(255 255 255 / 0.10) 0%,
-      rgb(255 255 255 / 0.05) 100%);
-  border: 1px solid rgb(255 255 255 / 0.12);
-  box-shadow:
-    0 8px 32px 0 rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 0 rgb(255 255 255 / 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgb(255 255 255 / 0.05);
+  border: 1px solid rgb(255 255 255 / 0.1);
 }
 
-/* Noise grain texture — gives frosted glass its tactile feel */
 .glass::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  /* Inline base64 SVG noise — avoids broken asset paths on GH Pages (/Portfolio/ base) */
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2Ij48ZmlsdGVyIGlkPSJub2lzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIgLz48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNTUiIC8+PC9zdmc+");
+  background-image: url("./assets/noise.svg");
   background-repeat: repeat;
   background-size: 128px 128px;
-  opacity: 0.65;
+  opacity: 0.2;
   mix-blend-mode: overlay;
   pointer-events: none;
-  z-index: 0;
-}
-
-/* Top-edge shimmer — the highlight that makes glass look truly frosted */
-.glass::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg,
-      rgb(255 255 255 / 0.12) 0%,
-      rgb(255 255 255 / 0.04) 18%,
-      transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ─── Bento-grid variant — stronger effect, hover glow ─────────────────────── */
-.glass-bento {
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  background: linear-gradient(135deg,
-      rgb(255 255 255 / 0.09) 0%,
-      rgb(255 255 255 / 0.04) 100%);
-  border: 1px solid rgb(255 255 255 / 0.10);
-  box-shadow:
-    0 4px 24px 0 rgba(0, 0, 0, 0.30),
-    inset 0 1px 0 0 rgb(255 255 255 / 0.20),
-    inset 0 -1px 0 0 rgb(0 0 0 / 0.10);
-  transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
-}
-
-.glass-bento:hover {
-  border-color: rgb(45 212 191 / 0.22);
-  box-shadow:
-    0 8px 40px 0 rgba(0, 0, 0, 0.40),
-    0 0 0 1px rgb(45 212 191 / 0.08),
-    inset 0 1px 0 0 rgb(255 255 255 / 0.24),
-    inset 0 -1px 0 0 rgb(0 0 0 / 0.12);
-  background: linear-gradient(135deg,
-      rgb(255 255 255 / 0.12) 0%,
-      rgb(255 255 255 / 0.06) 100%);
-}
-
-/* Noise grain texture */
-.glass-bento::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2Ij48ZmlsdGVyIGlkPSJub2lzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIgLz48ZmVDb2xvck1hdHJpeCB0eXBlPSJzYXR1cmF0ZSIgdmFsdWVzPSIwIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuNTUiIC8+PC9zdmc+");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-  opacity: 0.60;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Top-edge shimmer highlight */
-.glass-bento::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg,
-      rgb(255 255 255 / 0.14) 0%,
-      rgb(255 255 255 / 0.05) 16%,
-      transparent 45%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* Ensure Spline canvas fills its layer and receives pointer events */
@@ -174,7 +96,7 @@ h6 {
   touch-action: none;
 }
 
-.spline-layer>div,
+.spline-layer > div,
 .spline-layer canvas {
   width: 100% !important;
   height: 100% !important;
