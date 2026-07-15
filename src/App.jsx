@@ -54,8 +54,21 @@ title: 'Project 3',
 
 function App() {
   const bentoRef = useRef(null)
+  const splineRef = useRef(null)
 
   useEffect(() => {
+    // Fade Spline out as user scrolls past hero so backdrop-filter works on bento cards
+    const splineFade = gsap.to(splineRef.current, {
+      opacity: 0,
+      ease: 'power2.inOut',
+      scrollTrigger: {
+        trigger: '#works',
+        start: 'top 80%',
+        end: 'top 20%',
+        scrub: 1,
+      },
+    })
+
     const ctx = gsap.context(() => {
       gsap.from('.bento-card', {
         y: 56,
@@ -71,7 +84,10 @@ function App() {
       })
     }, bentoRef)
 
-    return () => ctx.revert()
+    return () => {
+      splineFade.scrollTrigger?.kill()
+      ctx.revert()
+    }
   }, [])
 
   return (
@@ -81,8 +97,8 @@ function App() {
         <AuroraBackground />
       </div>
 
-      {/* Spline — above aurora, below content */}
-      <div className="spline-layer fixed inset-0 z-10 h-screen w-screen pointer-events-auto">         
+      {/* Spline — above aurora, fades out on scroll so backdrop-filter works below */}
+      <div ref={splineRef} className="spline-layer fixed inset-0 z-10 h-screen w-screen pointer-events-auto">         
         <Spline scene="https://prod.spline.design/cjbK0moB5ygdybjZ/scene.splinecode" />
       </div>
 
